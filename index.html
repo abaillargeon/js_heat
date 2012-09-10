@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		
+		#mainCont{
+			width: 800px;
+			margin: 0px auto;
+			background-color: ;
+		}
+		
+			#introCont{
+				float:left:
+				width:800px;
+			}
+			
+		#dataCont{
+			width:800px;
+			float:left;
+		}
+		
+			#gridCont{
+				width:600px;
+				height:600px;
+				float:left;
+				background-color:blue;
+			}
+			
+				#gridCont div.node{
+					float:left;
+				}
+			
+			#legendCont{
+				width:200px;
+				float:left;
+			}
+		
+		div.clear{
+			clear:both;
+		}
+		
+	
+	</style>
+	<script type="text/javascript" src="http://shuffleinteractive.com/_ui/js/jquery/jquery.js"></script>
+	<script type="text/javascript">
+		gridWidth = 0;
+		gridHeight = 0;
+		nodeSize = 20;
+		boundaryConditions = [50, 20, 50, 10];
+		
+		function resetGrid(){
+			gridWidth = $("#gridCont").width();
+			gridHeight = $("#gridCont").height();
+			
+			lim = Math.floor(gridWidth / nodeSize);
+			lim = lim * Math.floor(gridHeight / nodeSize);
+			
+			for(i=0;i<lim;i++){
+				$("#gridCont").append("<div class=\"node\" id=\"node-"+(i+1)+"\" style=\"width:"+nodeSize+"px;height:"+nodeSize+"px;\"></div>");
+			}
+		}
+		
+		
+		$(document).ready(function(){
+			resetGrid();
+			$("#setGrid").click(function(e){
+				alert("test");
+				e.preventDefault();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="mainCont">
+		<div id="introCont">
+			<h1>Conduction heat transfer in javascript</h1>
+			<p>Set on a square grid<p>
+			<p><a href="#" id="setGrid">Set grid</a></p>
+			<table>
+				<tr><td>Grid Height</td><td>100</td></tr>
+				<tr><td>Grid Width</td><td>100</td></tr>
+				<tr><td>Initial Temp</td><td>2</td></tr>
+				<tr><td>Thermal Diffusivity</td><td>Steel</td></tr>
+				<tr><td>Conductivity</td><td>Steel</td></tr>
+			</table>
+		</div>
+		<div id="dataCont">
+			<div id="gridCont">
+				
+			</div>
+			<div id="legendCont">
+			
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</body>
+</html>
